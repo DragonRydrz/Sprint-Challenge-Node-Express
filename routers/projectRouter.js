@@ -80,6 +80,33 @@ router.post('/', (req, res) => {
   }
 });
 
+router.put('/:id', (req, res) => {
+  const { id } = req.params;
+  const { body } = req;
+
+  // Rather proud of this after thought... Dont want to change the actions from here...
+  if (body.actions) {
+    delete body.actions;
+  }
+
+  console.log(body.actions);
+
+  pM
+    .update(id, body)
+    .then(updatedProject => {
+      if (updatedProject === null) {
+        res
+          .status(404)
+          .json({ message: `Project with ID of ${id} does not exist.` });
+      } else {
+        res.json(updatedProject);
+      }
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
