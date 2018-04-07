@@ -48,4 +48,36 @@ router.get('/:id/actions', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  const { body } = req;
+
+  if (!body.name) {
+    res.status(400).json({ message: 'Project name is required.' });
+  } else if (body.name.length > 128) {
+    res
+      .status(400)
+      .json({ message: 'Project name is limited to 128 characters' });
+  } else if (!body.description) {
+    res.status(400).json({ message: 'Project Description is required' });
+  } else if (body.description.length > 128) {
+    res
+      .status(400)
+      .json({ message: 'Project description is limited to 128 characters' });
+  } else if (body.completed && typeof body.complete !== 'boolean') {
+    res.status(400).json({
+      message:
+        'Complete flag is not required, but if supplied must be true or false.',
+    });
+  } else {
+    pM
+      .insert(body)
+      .then(newProject => {
+        res.json(newProject);
+      })
+      .catch(error => {
+        res.status(500).json(error);
+      });
+  }
+});
+
 module.exports = router;
