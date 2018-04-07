@@ -31,4 +31,21 @@ router.get('/:id', (req, res) => {
     .catch(error => res.json(error));
 });
 
+router.get('/:id/actions', (req, res) => {
+  const { id } = req.params;
+
+  pM
+    .getProjectActions(id)
+    .then(projectActions => {
+      if (projectActions[0]) {
+        res.json(projectActions);
+      } else {
+        res.status(404).json({ message: `Project ID ${id} does not exist.` });
+      }
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
 module.exports = router;
