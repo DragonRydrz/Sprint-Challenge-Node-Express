@@ -1,5 +1,5 @@
 {
-  "name": "Sprint-Challenge-Node-Express",
+  "name": "sprint-challenge-node-express",
   "version": "1.0.0",
   "description": "## Assignments",
   "main": "knexfile.js",
@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DragonRydrz/Sprint-Challenge-Node-Express.git"
+    "url":
+      "git+https://github.com/DragonRydrz/Sprint-Challenge-Node-Express.git"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +18,8 @@
   "bugs": {
     "url": "https://github.com/DragonRydrz/Sprint-Challenge-Node-Express/issues"
   },
-  "homepage": "https://github.com/DragonRydrz/Sprint-Challenge-Node-Express#readme",
+  "homepage":
+    "https://github.com/DragonRydrz/Sprint-Challenge-Node-Express#readme",
   "devDependencies": {
     "nodemon": "^1.17.3"
   },

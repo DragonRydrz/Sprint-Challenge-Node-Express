@@ -51,6 +51,7 @@ router.post('/', (req, res) => {
           message: 'Action desctiption can be no more than 128 characters.',
         });
       } else if (typeof action.notes !== 'string') {
+        // add "action.notes && " before the type of check.
         res.status(400).json({
           message:
             'Action notes is not required (not supposed to be, yet insert will not work if notes arent passed into it.), but if it is supplied, it must me a string.',
