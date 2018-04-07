@@ -9,7 +9,7 @@ const actionRouter = require('./routers/actionRouter.js');
 const server = express();
 
 server.use(express.json());
-server.use(morgan());
+server.use(morgan('dev'));
 server.use(helmet());
 server.use(cors());
 
