@@ -4,7 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const actionRouter = require('./routers/actionRouter.js');
-// const projectRouter = require('./routers/projectRouter.js');
+const projectRouter = require('./routers/projectRouter.js');
 
 const server = express();
 
@@ -14,7 +14,7 @@ server.use(helmet());
 server.use(cors());
 
 server.use('/api/action', actionRouter);
-// server.use('api/project', projectRouter);
+server.use('/api/project', projectRouter);
 
 const port = 5000;
 
